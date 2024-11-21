@@ -34,7 +34,8 @@ $ESUDO umount "$monofile" || true
 $ESUDO mount "$monofile" "$monodir"
 
 # Setup savedir
-bind_directories ~/.config/StardewValley "$gamedir/savedata"
+$ESUDO rm -rf ~/.config/StardewValley
+ln -sfv "$gamedir/savedata" ~/.config/StardewValley
 
 # Setup path and other environment variables
 export MONOGAME_PATCH="$gamedir/dlls/StardewPatches.dll"

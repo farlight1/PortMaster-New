@@ -35,8 +35,9 @@ $ESUDO umount "$monofile" || true
 $ESUDO mount "$monofile" "$monodir"
 
 # Setup savedir
-bind_directories ~/.local/share/Tribute\ Games/TMNT "$gamedir/savedata"
-
+$ESUDO rm -rf ~/.local/share/Tribute\ Games/TMNT
+mkdir -p ~/.local/share/Tribute\ Games/
+ln -sfv "$gamedir/savedata" ~/.local/share/Tribute\ Games/TMNT
 
 # Remove all the dependencies in favour of system libs - e.g. the included 
 rm -f System*.dll mscorlib.dll FNA.dll Mono.*.dll

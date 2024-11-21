@@ -19,7 +19,8 @@ get_controls
 GAMEDIR="/$directory/ports/shadow-warrior"
 cd $GAMEDIR
 
-bind_directories ~/.jfsw $GAMEDIR/conf/.jfsw
+$ESUDO rm -rf ~/.jfsw
+ln -s $GAMEDIR/conf/.jfsw ~/
 
 $ESUDO chmod 666 /dev/tty1
 $ESUDO chmod 666 /dev/uinput
